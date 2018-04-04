@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">{{character.name}}</h5>
+    <p class="card-text">{{character.description}}</p>
+    <div>
+      <p>Choose a side</p>
+      <button (click)="onSideClick('light')" class="btn btn-primary">Light</button>
+      <button (click)="onSideClick('dark')" class="btn btn-danger">Dark</button>
+    </div>
+  </div>
+</div>

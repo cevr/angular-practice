@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -6,17 +6,10 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  state = { error: null };
-  items = ['Apple', 'Banana', 'Strawberry'];
-  newItem = '';
-  onAddItem = () => {
-    if (this.newItem) {
-      this.items.push(this.newItem);
-      this.newItem = '';
-    } else {
-      this.state.error = 'Must put an item';
-    }
-  };
-
+  @Input() characters;
+  @Output() charInfo = new EventEmitter<{ name: string; side: string }>();
   ngOnInit() {}
+  onSideChosen({ name, side }) {
+    this.charInfo.emit({ name, side });
+  }
 }
