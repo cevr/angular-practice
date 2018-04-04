@@ -1,0 +1,9 @@
+<input type="text" [(ngModel)]="newItem" placeholder="Type an item" />
+<button class="btn" [ngClass]="{'btn-primary': !!newItem, 'btn-default': !newItem}" (click)="onAddItem()">Add Item</button>
+<p *ngIf="state.error" style="color: red">{{state.error}}</p>
+<hr/>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let item of items; let i = index" [ngStyle]="{backgroundColor: i % 2 === 0 ? 'white' : 'lightblue'}">
+    {{item}}
+  </li>
+</ul>
